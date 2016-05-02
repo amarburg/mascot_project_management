@@ -40,54 +40,28 @@ Specification
 
 The functional spec is outlined below:
 
-<table>
-<tr><th>First</th><th>Second</th><th>Third</th><th>Notes</th></tr>
-<tr>
-	<th rowspan=3>Manage Jetson Power/state</th><td>Enable auto power-on</td><td>Power on delay after startup</td><td>Use power button</td>
-</tr>
-<tr>
-	<td>Provide an OOB way to reset the Jetson</td><td>Use reset button</td>
-</tr>
-<tr>
-	<td>Deadman timer</td><td>Reset if no communications (I2C?) after period of time</td><td>Manual disable/override on deadman?</td>
-</tr>
-<tr>
-	<th rowspan=2>Provide OOB communications</th><td>Reset the Jetson remotely</td><td>OOB connection to microcontroller?  Maybe magic pattern (break) to serial port?  Reset or power on.</td>
-</tr>
-<tr>
-	<td>Access serial console</td><td>Wireless or IR?</td><td>Connection speed is 115200, with 8 bits, no parity, and 1 stop bit (115200 8N1). Flow control will be RTS/CTS.  3v3.  Apparently it's on J21 pins 8,10 (Jetson pins UART0_*), board siganls UART1_*_HDR_3V3.   J17 hosts TX1 signals UART1_*</td>
-</tr>
-<tr>
-	<th rowspan=2>Host supplemental sensors</t><td>Pressure / temp sensor</td><td>Bosch BMP280</td><td>Adafruit (https://www.adafruit.com/products/2651) includes vreg and level shifters.  Don't need.</td>
-</tr>
-<tr>
-	<td>Headers for supplemental temp sensors?</td><td>4 pin headers for VDD/Gnd/SDA/SCL for add'l I2C sensors</td>
-</tr>
-<tr>
-	<th rowspan=2>Break out supplemental signals</th><td>GPIO Header (J26)</td><td>Pin headers</td>
-</tr>
-<tr>
-	<td>Expansion Header (J21)</td><td>Serial port (J17)</td><td>Jetson TX1 USART1_* at 3V3</td>
-</tr>
-<tr>
-	<th>Support for MSP430</th><td></td><td>Programming header</td>
-</tr>
-<tr>
-	<th rowspan=2>Indicators</th><td>LEDs for ?</td><td>Deadman?</td>
-</tr>
-<tr>
-	<td></td><td>Communications received?</td>
-</tr>
-<tr>
-	<th>Standalone version of board  for debugging</th><td>LEDs for status/debug?</td>
-</tr>
-<tr>
-	<th>Power board from Jetson?</th><td></td><td>3v3 is on all the time.</td>
-</tr>
-<tr>
-	<th>Control BlueRobotics lights</th><td>Generate PWM</td><td></td><td>Turn off lights</td>
-</tr
-</table>
+* Manage Jetson Power/state
+	* Enable auto power-on. Power on delay after startup. Use power button
+	* Provide an OOB way to reset the Jetson. Use reset button
+	* Deadman timer.  Reset if no communications (I2C?) after period of time. Manual disable/override on deadman?
+* Provide OOB communications
+	* Reset the Jetson remotely. OOB connection to microcontroller?  Maybe magic pattern (break) to serial port?  Reset or power on.
+	* Access serial console. Wireless or IR?. Connection speed is 115200, with 8 bits, no parity, and 1 stop bit (115200 8N1). Flow control will be RTS/CTS.  3v3.  Apparently it's on J21 pins 8,10 (Jetson pins UART0_*), board siganls UART1_*_HDR_3V3.   J17 hosts TX1 signals UART1_*
+* Host supplemental sensors
+	* Pressure / temp sensor.  Bosch BMP280.  Adafruit (https://www.adafruit.com/products/2651) includes vreg and level shifters.  Don't need.
+	* Headers for supplemental temp sensors? 4 pin headers for VDD/Gnd/SDA/SCL for add'l I2C sensors
+* Break out supplemental signals
+	* GPIO Header (J26). Pin headers
+	* Expansion Header (J21). Serial port (J17). Jetson TX1 USART1_* at 3V3
+* Support for MSP430
+	* Programming header
+* LED Indicators.
+	* Deadman?
+	* Communications received?
+* Standalone version of board for debugging.  LEDs for status/debug?
+* Power board from Jetson?  3v3 is on all the time.
+* Control BlueRobotics lights
+	* Generate PWM. Turn off lights?
 
 Electrical Design
 ------
