@@ -41,8 +41,8 @@ Specification
 The functional spec is outlined below:
 
 * Manage Jetson Power/state
-	* Enable auto power-on. Power on delay after startup. Use power button
-	* Provide an OOB way to reset the Jetson. Use reset button
+	* **Enable auto power-on.**	 Press power button a fixed delay after startup.   Interfaces directly with the power button.  This is an open-drain input on the Jetson with a pull-up to 1v8 (check on schematic).   Power switch on baseboard is mechanical switch to ground.   Use enhancement N-FET as equivalent to pull bus to ground.
+	* **Provide an OOB way to reset the Jetson.** Uses reset button, see notes above about power button.
 	* Deadman timer.  Reset if no communications (I2C?) after period of time. Manual disable/override on deadman?
 * Provide OOB communications
 	* Reset the Jetson remotely. OOB connection to microcontroller?  Maybe magic pattern (break) to serial port?  Reset or power on.
@@ -72,17 +72,19 @@ The board accomplishes two primary functions.  First, it mates and provide break
 
 Very briefly:
 
- * Debug connector (J10).   Power and reset, as well as JTAG, UART and I2C (not used).  Primarily at 1v8.
+ * Debug connector (J10).   Power and reset, as well as JTAG, UART and I2C (not used).  Primarily at 1v8.   This is a high density 0.5mm connector (Samtec QSH-30-01-L-D-A-TR).  The simplest interface appears to be putting the same connector on the companion board and using pre-made jumper cable from baseboard to companion board.
+
+The other three connectors are standard 0.1" pin headers.  The board will mount directly on these with female pinheaders on the bottom of the companion board.
+
  * Expansion header (J21).  I2C, I2S, SPI, UART at 3v3.
  * GPIO (J26).   GPIOs, mostly, some I2S
  * Serial Port (J17).   Supplemental UART.  Notably, not the Jetson's console (this is on J21).
 
-The companion board also hosts a MSP430 microprocessor.  As per the spec, this:
+The companion board also hosts a MSP430 microprocessor.  As per the spec, this micro will:
 
  * Turns the Jetson on when power is applied
  * Provides an OOB connection to reset the Jetson
- * Provides PWM control to the two Blue Robotics lights
- *
+ * Provide PWM signals to the two Blue Robotics lights (under control of the Jetson)
 
 The board also hosts a pressure/temperature sensor (Bosch BMP280), which interfaces to the
 I2C on the Jetson (not on the microprocessor) and an XBee radio.  The XBee provides
