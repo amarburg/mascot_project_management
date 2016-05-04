@@ -24,6 +24,8 @@ technology.  The Jetson TX1 computer module contains four 64-bit ARM processor
 cores as well as a 256-CUDA core GPU, which allows the Jetson TX1 to run the Zed
 processing library.
 
+![Jetson TX1 base board](jetson_tx1.jpg)
+
 The Jetson itself lives on a small (approx. credit card) carrier board, but for
 development purposes a mini-itx 5" x 5" motherboard is provided which includes a
 number of standardized connectors (SATA, Ethernet, SD card, PCI-E, mini-PCI-E)
@@ -51,7 +53,7 @@ headers on the Jetson motherboard.
 Specification
 -------------
 
-The functional spec is outlined below:
+The functional spec is:
 
 * **Manage Jetson Power/state**
 	* *Enable auto power-on.*	 Press power button a fixed delay after startup.   Interfaces directly with the power button.  The power control is an open-drain output on the Jetson (check on schematic).   The existing power switch on baseboard is mechanical switch to ground.   Use enhancement N-MOSFET as equivalent to pull bus to ground.
@@ -72,7 +74,7 @@ The functional spec is outlined below:
 * **Support electronics for MSP430 microcontroller**
 	* *Header for in-circuit programming.*
 * **LED Indicators.**
-	* Deadman?
+	* Deadman/heartbeat?
 	* Communications received?
 * **Board should be able to run standalone for debugging.**
 	* LEDs for status/debug?
@@ -87,7 +89,7 @@ Electrical Design
 The board accomplishes two primary functions.  First, it mates to and provide
 breakouts for four of the expansion headers on the Jetson board:
 
-![Jetson TX1 base board](jetson_tx1_carrier_board.png)
+![Jetson TX1 base board](jetson_tx1_carrier_board_diagram.png)
 
 Very briefly:
 
