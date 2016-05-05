@@ -14,7 +14,7 @@ stereo camera head in a shallow water enclosure.   The sensor head
 will provide stereo video including a dense depth estimate and will include
 sufficient on-board processing power for realtime 3D reconstruction.
 
-The sensor head consists for a [Stereolabs
+The sensor head consists of a [Stereolabs
 Zed](https://www.stereolabs.com/zed/specs/) USB3 stereo camera and an [NVIdia
 Jetson TX1](http://www.nvidia.com/object/jetson-tx1-module.html) embedded
 computer.   The Zed consists of a two-camera USB3 sensor unit and a proprietary
