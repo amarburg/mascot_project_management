@@ -38,7 +38,7 @@ theoretically possible.
 The underwater enclosure package has a single Subconn 8-pin connector which
 provides Cat6 UTP to the sensor head.  This cabling provides gigabit ethernet as
 well as 60W power-over-ethernet (PoE).  Note 60W PoE is non-standard. This
-connector allows reuse of existing subsea ethernet cables but prevents and
+connector allows reuse of existing subsea ethernet cables but prevents
 supplemental functions going over the same cable (unless we put an Ethernet hub
 in the box).      The package also includes two [BlueRobotic Lumen
 1](https://www.bluerobotics.com/store/electronics/lumen-light-r1/) submersible
