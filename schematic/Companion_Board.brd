@@ -3038,89 +3038,166 @@ design rules under a new name.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="C1" library="resistor" package="C1206" value="10uF" x="17.31" y="33.67" rot="MR270"/>
-<element name="C2" library="resistor" package="C1206" value="1uF" x="70.08" y="36.29" rot="R270"/>
-<element name="C3" library="resistor" package="C0805" value="0.1uF" x="19.81" y="34.17" rot="MR270"/>
-<element name="C4" library="resistor" package="C0805" value="6.8pF" x="67.69" y="36.32" rot="R270"/>
-<element name="D1" library="SparkFun-LED" package="LED-1206" value="RED" x="9.98" y="45.41">
-<attribute name="PROD_ID" value="DIO-09912" x="9.98" y="45.41" size="1.778" layer="27" display="off"/>
+<element name="C1" library="resistor" package="C1206" value="10uF" x="17.31" y="33.67" smashed="yes" rot="MR270">
+<attribute name="NAME" x="16.06" y="37.54" size="1.27" layer="26" rot="MR180"/>
 </element>
-<element name="D2" library="SparkFun-LED" package="LED-1206" value="RED" x="9.9" y="48.41">
+<element name="C2" library="resistor" package="C1206" value="1uF" x="70.08" y="36.29" smashed="yes" rot="R270">
+<attribute name="NAME" x="71.35" y="37.56" size="1.27" layer="25" rot="R270"/>
+</element>
+<element name="C3" library="resistor" package="C0805" value="0.1uF" x="19.81" y="34.17" smashed="yes" rot="MR270">
+<attribute name="NAME" x="19.06" y="37.54" size="1.27" layer="26" rot="MR180"/>
+</element>
+<element name="C4" library="resistor" package="C0805" value="6.8pF" x="67.69" y="36.32" smashed="yes" rot="R270">
+<attribute name="NAME" x="68.96" y="37.59" size="1.27" layer="25" rot="R270"/>
+</element>
+<element name="D1" library="SparkFun-LED" package="LED-1206" value="RED" x="9.98" y="45.41" smashed="yes">
+<attribute name="PROD_ID" value="DIO-09912" x="9.98" y="45.41" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="9.091" y="46.807" size="0.4064" layer="25"/>
+<attribute name="VALUE" x="8.964" y="43.632" size="0.4064" layer="27"/>
+</element>
+<element name="D2" library="SparkFun-LED" package="LED-1206" value="RED" x="9.9" y="48.41" smashed="yes">
 <attribute name="PROD_ID" value="DIO-09912" x="9.9" y="48.41" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="9.011" y="49.807" size="0.4064" layer="25"/>
+<attribute name="VALUE" x="8.884" y="46.632" size="0.4064" layer="27"/>
 </element>
 <element name="H1" library="holes" package="4,1" value="MOUNT-HOLE4.1" x="48.79" y="41.35" locked="yes" rot="R90"/>
 <element name="H3" library="holes" package="4,1" value="MOUNT-HOLE4.1" x="85.65" y="5.08" locked="yes"/>
-<element name="J17" library="con-lsta" package="FE06" value="" x="7.17" y="8.65" locked="yes" rot="R90">
+<element name="J17" library="con-lsta" package="FE06" value="" x="7.17" y="8.65" locked="yes" smashed="yes" rot="R90">
 <attribute name="OC_NEWARK" value="unknown" x="7.17" y="8.65" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MF" value="" x="7.17" y="8.65" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="" x="7.17" y="8.65" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="7.17" y="8.65" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VALUE" x="10.091" y="1.03" size="1.27" layer="27" ratio="10" rot="R90"/>
 </element>
-<element name="J21" library="con-lsta" package="FE20-2" value="" x="43.17" y="7.08" locked="yes" rot="MR180">
+<element name="J21" library="con-lsta" package="FE20-2" value="" x="43.17" y="7.08" locked="yes" smashed="yes" rot="MR180">
 <attribute name="OC_NEWARK" value="unknown" x="43.17" y="7.08" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="MF" value="" x="43.17" y="7.08" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="MPN" value="" x="43.17" y="7.08" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="43.17" y="7.08" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="VALUE" x="17.77" y="11.779" size="1.27" layer="28" ratio="10" rot="MR180"/>
 </element>
-<element name="J26" library="con-lsta" package="FE15-2" value="" x="87.44" y="32.3" locked="yes" rot="MR270">
+<element name="J26" library="con-lsta" package="FE15-2" value="" x="87.44" y="32.3" locked="yes" smashed="yes" rot="MR270">
 <attribute name="OC_NEWARK" value="unknown" x="87.44" y="32.3" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="MF" value="" x="87.44" y="32.3" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="MPN" value="" x="87.44" y="32.3" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="87.44" y="32.3" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="VALUE" x="92.139" y="51.35" size="1.27" layer="28" ratio="10" rot="MR270"/>
 </element>
-<element name="JP1" library="pinhead" package="1X15" value="" x="81.36" y="32.3" locked="yes" rot="R270"/>
-<element name="JP10" library="companion_board" package="1X07" value="ADAFRUIT BMP280 Breakout" x="36.81" y="24.5" rot="R270"/>
-<element name="JP11" library="pinhead" package="1X04/90" value="" x="7.17" y="23.95" rot="R90"/>
-<element name="JP12" library="pinhead" package="1X03/90" value="PWM Light Control" x="74.95" y="8.65" rot="R180"/>
-<element name="JP13" library="pinhead" package="1X10" value="" x="60.06" y="38.67" rot="R270"/>
-<element name="JP14" library="pinhead" package="1X10" value="" x="74.06" y="38.66" rot="MR90"/>
-<element name="JP2" library="pinhead" package="1X15" value="" x="93.36" y="32.3" locked="yes" rot="R270"/>
-<element name="JP3" library="pinhead" package="1X20" value="" x="43.17" y="2.58"/>
-<element name="JP4" library="pinhead" package="1X06" value="" x="3.06" y="8.65" rot="MR90"/>
-<element name="JP5" library="pinhead" package="1X20" value="" x="43.17" y="11.58"/>
-<element name="JP8" library="pinhead" package="2X07" value="" x="32.1" y="46.31" rot="R180"/>
-<element name="JP9" library="pinhead" package="1X03" value="" x="37.37" y="41.06"/>
-<element name="Q1" library="crystal" package="HC49UP" value="16MHz" x="26.18" y="21.54" rot="MR180">
+<element name="JP1" library="pinhead" package="1X15" value="" x="81.36" y="32.3" locked="yes" smashed="yes" rot="R270">
+<attribute name="NAME" x="83.1888" y="51.4262" size="1.27" layer="25" ratio="10" rot="R270"/>
+<attribute name="VALUE" x="78.185" y="51.35" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="JP10" library="companion_board" package="1X07" value="ADAFRUIT BMP280 Breakout" x="36.81" y="24.5" smashed="yes" rot="R270">
+<attribute name="NAME" x="38.6388" y="19.4662" size="1.27" layer="25" ratio="10" rot="R270"/>
+</element>
+<element name="JP11" library="pinhead" package="1X04/90" value="" x="7.17" y="23.95" smashed="yes" rot="R90">
+<attribute name="VALUE" x="11.615" y="30.935" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="JP12" library="pinhead" package="1X03/90" value="PWM Light Control" x="74.95" y="8.65" smashed="yes" rot="R180">
+<attribute name="VALUE" x="69.235" y="16.46" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="JP13" library="pinhead" package="1X10" value="" x="60.06" y="38.67" smashed="yes" rot="R270">
+<attribute name="VALUE" x="56.885" y="51.37" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="JP14" library="pinhead" package="1X10" value="" x="74.06" y="38.66" smashed="yes" rot="MR90">
+<attribute name="VALUE" x="70.885" y="25.96" size="1.27" layer="28" rot="MR90"/>
+</element>
+<element name="JP2" library="pinhead" package="1X15" value="" x="93.36" y="32.3" locked="yes" smashed="yes" rot="R270">
+<attribute name="VALUE" x="90.185" y="51.35" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="JP3" library="pinhead" package="1X20" value="" x="43.17" y="2.58" smashed="yes">
+<attribute name="VALUE" x="17.77" y="-0.595" size="1.27" layer="27"/>
+</element>
+<element name="JP4" library="pinhead" package="1X06" value="" x="3.06" y="8.65" smashed="yes" rot="MR90">
+<attribute name="VALUE" x="-0.115" y="1.03" size="1.27" layer="28" rot="MR90"/>
+</element>
+<element name="JP5" library="pinhead" package="1X20" value="" x="43.17" y="11.58" smashed="yes">
+<attribute name="VALUE" x="17.77" y="8.405" size="1.27" layer="27"/>
+</element>
+<element name="JP8" library="pinhead" package="2X07" value="" x="32.1" y="46.31" smashed="yes" rot="R180">
+<attribute name="VALUE" x="40.99" y="50.755" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="JP9" library="pinhead" package="1X03" value="" x="37.37" y="41.06" smashed="yes">
+<attribute name="VALUE" x="33.56" y="37.885" size="1.27" layer="27"/>
+</element>
+<element name="Q1" library="crystal" package="HC49UP" value="16MHz" x="26.18" y="21.54" smashed="yes" rot="MR180">
 <attribute name="OC_NEWARK" value="unknown" x="26.18" y="21.54" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="MF" value="" x="26.18" y="21.54" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="MPN" value="" x="26.18" y="21.54" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="26.18" y="21.54" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="NAME" x="20.465" y="18.746" size="1.27" layer="26" ratio="10" rot="MR180"/>
 </element>
-<element name="R1" library="resistor" package="R0805" value="47k" x="43.08" y="46.38" rot="R270"/>
-<element name="R10" library="resistor" package="R0805" value="10k" x="65.51" y="47.92" rot="R180"/>
-<element name="R11" library="resistor" package="R0805" value="0k" x="69.86" y="45.58"/>
-<element name="R12" library="resistor" package="R0805" value="NC" x="29.92" y="40.36" rot="MR90"/>
-<element name="R13" library="resistor" package="R0805" value="NC" x="27.88" y="40.39" rot="MR90"/>
-<element name="R2" library="resistor" package="R0805" value="0k" x="69.86" y="47.92" rot="R180"/>
-<element name="R3" library="resistor" package="R0805" value="10k" x="65.54" y="45.58"/>
-<element name="R4" library="resistor" package="R0805" value="10k" x="14.92" y="27.46" rot="R90"/>
-<element name="R5" library="resistor" package="R0805" value="10k" x="15.08" y="18.54" rot="R270"/>
-<element name="R6" library="resistor" package="R0805" value="10k" x="18.3" y="49.08"/>
-<element name="R7" library="resistor" package="R0805" value="270" x="4.72" y="45.42" rot="R180"/>
-<element name="R8" library="resistor" package="R0805" value="10k" x="18.22" y="42.58"/>
-<element name="R9" library="resistor" package="R0805" value="270" x="4.8" y="48.42" rot="R180"/>
-<element name="TP1" library="testpad" package="P1-13" value="TPPAD1-13" x="2.75" y="36.14">
-<attribute name="TP_SIGNAL_NAME" value="" x="2.75" y="36.14" size="1.778" layer="27" display="off"/>
+<element name="R1" library="resistor" package="R0805" value="47k" x="43.08" y="46.38" smashed="yes" rot="R270">
+<attribute name="NAME" x="44.35" y="47.015" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="TP2" library="testpad" package="P1-13" value="TPPAD1-13" x="31.47" y="26.64">
-<attribute name="TP_SIGNAL_NAME" value="" x="31.47" y="26.64" size="1.778" layer="27" display="off"/>
+<element name="R10" library="resistor" package="R0805" value="10k" x="65.51" y="47.92" smashed="yes" rot="R180">
+<attribute name="NAME" x="67.145" y="50.15" size="1.27" layer="25" rot="R180"/>
 </element>
-<element name="TP3" library="testpad" package="P1-13" value="TPPAD1-13" x="32.39" y="29.64">
-<attribute name="TP_SIGNAL_NAME" value="" x="32.39" y="29.64" size="1.778" layer="27" display="off"/>
+<element name="R11" library="resistor" package="R0805" value="0k" x="69.86" y="45.58" smashed="yes">
+<attribute name="NAME" x="71.775" y="44.15" size="1.27" layer="25" rot="R180"/>
 </element>
-<element name="TP4" library="testpad" package="P1-13" value="TPPAD1-13" x="2.81" y="39.64">
-<attribute name="TP_SIGNAL_NAME" value="" x="2.81" y="39.64" size="1.778" layer="27" display="off"/>
+<element name="R12" library="resistor" package="R0805" value="NC" x="29.92" y="40.36" smashed="yes" rot="MR90">
+<attribute name="NAME" x="31.19" y="38.725" size="1.27" layer="26" rot="MR90"/>
 </element>
-<element name="U$1" library="companion_board" package="SOP65P640X120-20N" value="MSP430FR2311IPW20" x="26.62" y="33.53" rot="MR90"/>
+<element name="R13" library="resistor" package="R0805" value="NC" x="27.88" y="40.39" smashed="yes" rot="MR90">
+<attribute name="NAME" x="25.15" y="38.755" size="1.27" layer="26" rot="MR90"/>
+</element>
+<element name="R2" library="resistor" package="R0805" value="0k" x="69.86" y="47.92" smashed="yes" rot="R180">
+<attribute name="NAME" x="71.995" y="50.15" size="1.27" layer="25" rot="R180"/>
+</element>
+<element name="R3" library="resistor" package="R0805" value="10k" x="65.54" y="45.58" smashed="yes">
+<attribute name="NAME" x="66.095" y="44.15" size="1.27" layer="25" rot="R180"/>
+</element>
+<element name="R4" library="resistor" package="R0805" value="10k" x="14.92" y="27.46" smashed="yes" rot="R90">
+<attribute name="NAME" x="16.35" y="28.675" size="1.27" layer="25" rot="R270"/>
+</element>
+<element name="R5" library="resistor" package="R0805" value="10k" x="15.08" y="18.54" smashed="yes" rot="R270">
+<attribute name="NAME" x="16.35" y="19.175" size="1.27" layer="25" rot="R270"/>
+</element>
+<element name="R6" library="resistor" package="R0805" value="10k" x="18.3" y="49.08" smashed="yes">
+<attribute name="NAME" x="16.15" y="48.165" size="1.27" layer="25" rot="R90"/>
+</element>
+<element name="R7" library="resistor" package="R0805" value="270" x="4.72" y="45.42" smashed="yes" rot="R180">
+<attribute name="NAME" x="2.65" y="44.145" size="1.27" layer="25" rot="R90"/>
+</element>
+<element name="R8" library="resistor" package="R0805" value="10k" x="18.22" y="42.58" smashed="yes">
+<attribute name="NAME" x="16.15" y="41.585" size="1.27" layer="25" rot="R90"/>
+</element>
+<element name="R9" library="resistor" package="R0805" value="270" x="4.8" y="48.42" smashed="yes" rot="R180">
+<attribute name="NAME" x="2.65" y="47.565" size="1.27" layer="25" rot="R90"/>
+</element>
+<element name="TP1" library="testpad" package="P1-13" value="TPPAD1-13" x="2.75" y="36.14" smashed="yes">
+<attribute name="TP_SIGNAL_NAME" value="" x="1.48" y="33.6" size="1" layer="37"/>
+<attribute name="VALUE" x="2.75" y="36.14" size="0.0254" layer="27"/>
+</element>
+<element name="I2C_DAT" library="testpad" package="P1-13" value="TPPAD1-13" x="31.47" y="26.64" smashed="yes">
+<attribute name="TP_SIGNAL_NAME" value="" x="30.2" y="24.1" size="1" layer="37"/>
+<attribute name="NAME" x="27.954" y="23.91" size="1.27" layer="25" ratio="10"/>
+<attribute name="VALUE" x="31.47" y="26.64" size="0.0254" layer="27"/>
+</element>
+<element name="I2C_CLK" library="testpad" package="P1-13" value="TPPAD1-13" x="32.39" y="29.64" smashed="yes">
+<attribute name="TP_SIGNAL_NAME" value="" x="31.12" y="27.1" size="1" layer="37"/>
+<attribute name="NAME" x="27.874" y="31.41" size="1.27" layer="25" ratio="10"/>
+<attribute name="VALUE" x="32.39" y="29.64" size="0.0254" layer="27"/>
+</element>
+<element name="TP4" library="testpad" package="P1-13" value="TPPAD1-13" x="2.81" y="39.64" smashed="yes">
+<attribute name="TP_SIGNAL_NAME" value="" x="1.54" y="37.1" size="1" layer="37"/>
+<attribute name="VALUE" x="2.81" y="39.64" size="0.0254" layer="27"/>
+</element>
+<element name="U$1" library="companion_board" package="SOP65P640X120-20N" value="MSP430FR2311IPW20" x="26.62" y="33.53" smashed="yes" rot="MR90"/>
 <element name="U$2" library="companion_board" package="SOT363" value="2N7002DW" x="15" y="22.86" rot="R180"/>
-<element name="XB1" library="maxstream" package="XBEE" value="XBEE" x="66.6" y="40.24">
+<element name="XB1" library="maxstream" package="XBEE" value="XBEE" x="66.6" y="40.24" smashed="yes">
 <attribute name="OC_NEWARK" value="34R5507" x="66.6" y="40.24" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="" x="66.6" y="40.24" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="XBP24-Z7UIT-004" x="66.6" y="40.24" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="1751799" x="66.6" y="40.24" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C5" library="resistor" package="C0805" value="6.8pF" x="30.5" y="18.5" rot="R90"/>
-<element name="C6" library="resistor" package="C0805" value="6.8pF" x="21.5" y="18.5" rot="R90"/>
+<element name="C5" library="resistor" package="C0805" value="6.8pF" x="30.5" y="18.5" smashed="yes" rot="R90">
+<attribute name="NAME" x="29.23" y="17.23" size="1.27" layer="25" rot="R90"/>
+</element>
+<element name="C6" library="resistor" package="C0805" value="6.8pF" x="21.5" y="18.5" smashed="yes" rot="R90">
+<attribute name="NAME" x="20.23" y="17.23" size="1.27" layer="25" rot="R90"/>
+</element>
 <element name="U$3" library="companion_board" package="SOT363" value="2N7002DW" x="17" y="46" rot="R180"/>
 </elements>
 <signals>
@@ -3449,7 +3526,7 @@ design rules under a new name.</description>
 <contactref element="J21" pad="3"/>
 <contactref element="JP3" pad="2"/>
 <contactref element="U$1" pad="20"/>
-<contactref element="TP2" pad="TP"/>
+<contactref element="I2C_DAT" pad="TP"/>
 <contactref element="JP10" pad="6"/>
 <wire x1="29.541" y1="36.451" x2="30.049" y2="36.451" width="0.4064" layer="16"/>
 <wire x1="37" y1="19.5" x2="36.89" y2="19.5" width="0.4064" layer="16"/>
@@ -3478,7 +3555,7 @@ design rules under a new name.</description>
 <contactref element="JP3" pad="3"/>
 <contactref element="J21" pad="5"/>
 <contactref element="U$1" pad="19"/>
-<contactref element="TP3" pad="TP"/>
+<contactref element="I2C_CLK" pad="TP"/>
 <contactref element="JP10" pad="4"/>
 <via x="32" y="36.9" extent="1-16" drill="0.6"/>
 <wire x1="24.12" y1="5.81" x2="25.4" y2="7.09" width="0.4064" layer="16"/>
