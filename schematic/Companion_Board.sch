@@ -12282,7 +12282,6 @@ LilyPad 1206- DIO-09912&lt;br&gt;
 <part name="TP1" library="testpad" deviceset="TP" device="PAD1-13"/>
 <part name="I2C_DAT" library="testpad" deviceset="TP" device="PAD1-13"/>
 <part name="I2C_CLK" library="testpad" deviceset="TP" device="PAD1-13"/>
-<part name="JP12" library="pinhead" deviceset="PINHD-1X3" device="/90" value="PWM Light Control"/>
 <part name="SUPPLY15" library="supply2" deviceset="GND" device=""/>
 <part name="JP13" library="pinhead" deviceset="PINHD-1X10" device=""/>
 <part name="JP14" library="pinhead" deviceset="PINHD-1X10" device=""/>
@@ -12318,6 +12317,9 @@ LilyPad 1206- DIO-09912&lt;br&gt;
 <part name="C6" library="resistor" deviceset="C-EU" device="C0805" value="6.8pF"/>
 <part name="SUPPLY24" library="supply2" deviceset="GND" device=""/>
 <part name="U$3" library="companion_board" deviceset="2N7002DW" device=""/>
+<part name="JP6" library="pinhead" deviceset="PINHD-1X4" device="/90"/>
+<part name="JP7" library="pinhead" deviceset="PINHD-1X4" device=""/>
+<part name="SUPPLY1" library="supply2" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12390,8 +12392,7 @@ Gnd</text>
 <instance part="TP1" gate="G$1" x="129.54" y="152.4"/>
 <instance part="I2C_DAT" gate="G$1" x="302.26" y="175.26"/>
 <instance part="I2C_CLK" gate="G$1" x="307.34" y="175.26"/>
-<instance part="JP12" gate="A" x="398.78" y="132.08"/>
-<instance part="SUPPLY15" gate="GND" x="383.54" y="124.46"/>
+<instance part="SUPPLY15" gate="GND" x="383.54" y="121.92"/>
 <instance part="JP13" gate="A" x="322.58" y="96.52" rot="R270"/>
 <instance part="JP14" gate="A" x="320.04" y="17.78" rot="R270"/>
 <instance part="SUPPLY16" gate="GND" x="322.58" y="12.7"/>
@@ -12429,6 +12430,9 @@ Gnd</text>
 <instance part="SUPPLY24" gate="GND" x="147.32" y="137.16"/>
 <instance part="U$3" gate="G$1" x="119.38" y="116.84" rot="MR0"/>
 <instance part="U$3" gate="G$2" x="71.12" y="116.84" rot="MR0"/>
+<instance part="JP6" gate="A" x="398.78" y="129.54"/>
+<instance part="JP7" gate="A" x="368.3" y="149.86" rot="R270"/>
+<instance part="SUPPLY1" gate="GND" x="365.76" y="142.24"/>
 </instances>
 <busses>
 </busses>
@@ -12575,9 +12579,13 @@ Gnd</text>
 </segment>
 <segment>
 <pinref part="SUPPLY15" gate="GND" pin="GND"/>
-<pinref part="JP12" gate="A" pin="2"/>
-<wire x1="383.54" y1="127" x2="383.54" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="383.54" y1="124.46" x2="383.54" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="383.54" y1="129.54" x2="383.54" y2="132.08" width="0.1524" layer="91"/>
 <wire x1="383.54" y1="132.08" x2="396.24" y2="132.08" width="0.1524" layer="91"/>
+<pinref part="JP6" gate="A" pin="2"/>
+<pinref part="JP6" gate="A" pin="3"/>
+<wire x1="396.24" y1="129.54" x2="383.54" y2="129.54" width="0.1524" layer="91"/>
+<junction x="383.54" y="129.54"/>
 </segment>
 <segment>
 <pinref part="U$2" gate="G$1" pin="S"/>
@@ -12657,6 +12665,11 @@ Gnd</text>
 <wire x1="147.32" y1="142.24" x2="147.32" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="147.32" y1="152.4" x2="149.86" y2="152.4" width="0.1524" layer="91"/>
 <junction x="147.32" y="142.24"/>
+</segment>
+<segment>
+<pinref part="SUPPLY1" gate="GND" pin="GND"/>
+<pinref part="JP7" gate="A" pin="4"/>
+<wire x1="365.76" y1="144.78" x2="365.76" y2="152.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RESET_IN_R_L" class="0">
@@ -12920,6 +12933,10 @@ Gnd</text>
 <pinref part="JP10" gate="A" pin="1"/>
 <wire x1="396.24" y1="172.72" x2="381" y2="172.72" width="0.1524" layer="91"/>
 <junction x="381" y="172.72"/>
+<pinref part="JP7" gate="A" pin="1"/>
+<wire x1="381" y1="157.48" x2="373.38" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="373.38" y1="157.48" x2="373.38" y2="152.4" width="0.1524" layer="91"/>
+<junction x="381" y="157.48"/>
 </segment>
 <segment>
 <pinref part="R9" gate="G$1" pin="2"/>
@@ -12956,8 +12973,12 @@ Gnd</text>
 <junction x="302.26" y="167.64"/>
 <wire x1="332.74" y1="167.64" x2="332.74" y2="160.02" width="0.1524" layer="91"/>
 <pinref part="JP10" gate="A" pin="6"/>
-<wire x1="396.24" y1="160.02" x2="332.74" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="396.24" y1="160.02" x2="368.3" y2="160.02" width="0.1524" layer="91"/>
 <label x="347.98" y="160.02" size="1.778" layer="95"/>
+<pinref part="JP7" gate="A" pin="3"/>
+<wire x1="368.3" y1="160.02" x2="332.74" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="368.3" y1="152.4" x2="368.3" y2="160.02" width="0.1524" layer="91"/>
+<junction x="368.3" y="160.02"/>
 </segment>
 </net>
 <net name="I2C_GP0_CLK_3V3" class="0">
@@ -12975,8 +12996,12 @@ Gnd</text>
 <wire x1="307.34" y1="165.1" x2="307.34" y2="172.72" width="0.1524" layer="91"/>
 <label x="347.98" y="165.1" size="1.778" layer="95"/>
 <pinref part="JP10" gate="A" pin="4"/>
-<wire x1="396.24" y1="165.1" x2="307.34" y2="165.1" width="0.1524" layer="91"/>
+<wire x1="396.24" y1="165.1" x2="370.84" y2="165.1" width="0.1524" layer="91"/>
 <junction x="307.34" y="165.1"/>
+<pinref part="JP7" gate="A" pin="2"/>
+<wire x1="370.84" y1="165.1" x2="307.34" y2="165.1" width="0.1524" layer="91"/>
+<wire x1="370.84" y1="152.4" x2="370.84" y2="165.1" width="0.1524" layer="91"/>
+<junction x="370.84" y="165.1"/>
 </segment>
 </net>
 <net name="N$26" class="0">
@@ -13317,18 +13342,18 @@ Gnd</text>
 <label x="279.4" y="152.4" size="1.778" layer="95"/>
 <wire x1="276.86" y1="152.4" x2="358.14" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="358.14" y1="152.4" x2="358.14" y2="134.62" width="0.1524" layer="91"/>
-<pinref part="JP12" gate="A" pin="1"/>
 <wire x1="358.14" y1="134.62" x2="396.24" y2="134.62" width="0.1524" layer="91"/>
+<pinref part="JP6" gate="A" pin="1"/>
 </segment>
 </net>
 <net name="LIGHT_PWM2" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="P2.1/TB1.2"/>
 <label x="279.4" y="149.86" size="1.778" layer="95"/>
-<pinref part="JP12" gate="A" pin="3"/>
-<wire x1="396.24" y1="129.54" x2="353.06" y2="129.54" width="0.1524" layer="91"/>
-<wire x1="353.06" y1="129.54" x2="353.06" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="396.24" y1="127" x2="353.06" y2="127" width="0.1524" layer="91"/>
+<wire x1="353.06" y1="127" x2="353.06" y2="149.86" width="0.1524" layer="91"/>
 <wire x1="353.06" y1="149.86" x2="276.86" y2="149.86" width="0.1524" layer="91"/>
+<pinref part="JP6" gate="A" pin="4"/>
 </segment>
 </net>
 <net name="N$41" class="0">
