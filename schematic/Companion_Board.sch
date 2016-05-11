@@ -13039,6 +13039,17 @@ Gnd</text>
 <pinref part="J21" gate="G$1" pin="21"/>
 <wire x1="205.74" y1="58.42" x2="233.68" y2="58.42" width="0.1524" layer="91"/>
 <label x="210.82" y="58.42" size="1.778" layer="95"/>
+<wire x1="195.58" y1="58.42" x2="195.58" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="195.58" y1="12.7" x2="294.64" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="294.64" y1="12.7" x2="294.64" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="294.64" y1="58.42" x2="327.66" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="JP14" gate="A" pin="2"/>
+<wire x1="327.66" y1="58.42" x2="327.66" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="XB1" gate="G$1" pin="!CTS!/DIO7"/>
+<wire x1="327.66" y1="58.42" x2="368.3" y2="58.42" width="0.1524" layer="91"/>
+<junction x="327.66" y="58.42"/>
+<wire x1="195.58" y1="58.42" x2="205.74" y2="58.42" width="0.1524" layer="91"/>
+<junction x="205.74" y="58.42"/>
 </segment>
 </net>
 <net name="N$33" class="0">
@@ -13089,6 +13100,15 @@ Gnd</text>
 <pinref part="J21" gate="G$1" pin="8"/>
 <wire x1="284.48" y1="76.2" x2="248.92" y2="76.2" width="0.1524" layer="91"/>
 <label x="248.92" y="76.2" size="1.778" layer="95"/>
+<wire x1="297.18" y1="76.2" x2="297.18" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="XB1" gate="G$1" pin="DIN/!CONFIG"/>
+<wire x1="297.18" y1="71.12" x2="327.66" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="327.66" y1="71.12" x2="368.3" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="JP13" gate="A" pin="3"/>
+<wire x1="327.66" y1="71.12" x2="327.66" y2="99.06" width="0.1524" layer="91"/>
+<junction x="327.66" y="71.12"/>
+<wire x1="284.48" y1="76.2" x2="297.18" y2="76.2" width="0.1524" layer="91"/>
+<junction x="284.48" y="76.2"/>
 </segment>
 </net>
 <net name="UART1_RXD_HDR_3V3" class="0">
@@ -13097,6 +13117,15 @@ Gnd</text>
 <pinref part="JP5" gate="A" pin="5"/>
 <wire x1="248.92" y1="73.66" x2="284.48" y2="73.66" width="0.1524" layer="91"/>
 <label x="248.92" y="73.66" size="1.778" layer="95"/>
+<pinref part="XB1" gate="G$1" pin="DOUT"/>
+<wire x1="368.3" y1="68.58" x2="330.2" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="330.2" y1="68.58" x2="294.64" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="294.64" y1="68.58" x2="294.64" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="JP13" gate="A" pin="2"/>
+<wire x1="330.2" y1="68.58" x2="330.2" y2="99.06" width="0.1524" layer="91"/>
+<junction x="330.2" y="68.58"/>
+<wire x1="284.48" y1="73.66" x2="294.64" y2="73.66" width="0.1524" layer="91"/>
+<junction x="284.48" y="73.66"/>
 </segment>
 </net>
 <net name="N$42" class="0">
@@ -13162,6 +13191,15 @@ Gnd</text>
 <pinref part="JP5" gate="A" pin="18"/>
 <wire x1="248.92" y1="40.64" x2="284.48" y2="40.64" width="0.1524" layer="91"/>
 <label x="248.92" y="40.64" size="1.778" layer="95"/>
+<wire x1="297.18" y1="40.64" x2="297.18" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="297.18" y1="55.88" x2="317.5" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="317.5" y1="55.88" x2="317.5" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="JP14" gate="A" pin="6"/>
+<pinref part="XB1" gate="G$1" pin="!RTS!/AD6/DIO6"/>
+<wire x1="317.5" y1="55.88" x2="368.3" y2="55.88" width="0.1524" layer="91"/>
+<junction x="317.5" y="55.88"/>
+<wire x1="284.48" y1="40.64" x2="297.18" y2="40.64" width="0.1524" layer="91"/>
+<junction x="284.48" y="40.64"/>
 </segment>
 </net>
 <net name="N$51" class="0">
@@ -13208,56 +13246,6 @@ Gnd</text>
 <pinref part="J17" gate="G$1" pin="6"/>
 <wire x1="121.92" y1="-45.72" x2="81.28" y2="-45.72" width="0.1524" layer="91"/>
 <label x="93.98" y="-45.72" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$11" class="0">
-<segment>
-<wire x1="287.02" y1="76.2" x2="297.18" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="297.18" y1="76.2" x2="297.18" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="XB1" gate="G$1" pin="DIN/!CONFIG"/>
-<wire x1="297.18" y1="71.12" x2="327.66" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="327.66" y1="71.12" x2="368.3" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="JP13" gate="A" pin="3"/>
-<wire x1="327.66" y1="71.12" x2="327.66" y2="99.06" width="0.1524" layer="91"/>
-<junction x="327.66" y="71.12"/>
-</segment>
-</net>
-<net name="N$6" class="0">
-<segment>
-<pinref part="XB1" gate="G$1" pin="DOUT"/>
-<wire x1="368.3" y1="68.58" x2="330.2" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="330.2" y1="68.58" x2="294.64" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="294.64" y1="68.58" x2="294.64" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="294.64" y1="73.66" x2="287.02" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="JP13" gate="A" pin="2"/>
-<wire x1="330.2" y1="68.58" x2="330.2" y2="99.06" width="0.1524" layer="91"/>
-<junction x="330.2" y="68.58"/>
-</segment>
-</net>
-<net name="N$32" class="0">
-<segment>
-<wire x1="287.02" y1="40.64" x2="297.18" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="297.18" y1="40.64" x2="297.18" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="297.18" y1="55.88" x2="317.5" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="317.5" y1="55.88" x2="317.5" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="JP14" gate="A" pin="6"/>
-<pinref part="XB1" gate="G$1" pin="!RTS!/AD6/DIO6"/>
-<wire x1="317.5" y1="55.88" x2="368.3" y2="55.88" width="0.1524" layer="91"/>
-<junction x="317.5" y="55.88"/>
-</segment>
-</net>
-<net name="N$40" class="0">
-<segment>
-<wire x1="203.2" y1="58.42" x2="195.58" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="195.58" y1="58.42" x2="195.58" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="195.58" y1="12.7" x2="294.64" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="294.64" y1="12.7" x2="294.64" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="294.64" y1="58.42" x2="327.66" y2="58.42" width="0.1524" layer="91"/>
-<pinref part="JP14" gate="A" pin="2"/>
-<wire x1="327.66" y1="58.42" x2="327.66" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="XB1" gate="G$1" pin="!CTS!/DIO7"/>
-<wire x1="327.66" y1="58.42" x2="368.3" y2="58.42" width="0.1524" layer="91"/>
-<junction x="327.66" y="58.42"/>
 </segment>
 </net>
 <net name="SBW_TDIO" class="0">
