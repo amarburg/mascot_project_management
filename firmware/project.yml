@@ -31,6 +31,10 @@
   :support:
     - test/support
 
+:files:
+  :support:
+    - test/support/msp_defines.c
+
 :defines:
   # in order to add common defines:
   #  1) remove the trailing [] from the :common: section
