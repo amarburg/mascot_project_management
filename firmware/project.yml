@@ -10,7 +10,7 @@
   :use_test_preprocessor: TRUE
   :use_auxiliary_dependencies: TRUE
   :build_root: build
-#  :release_build: TRUE
+  :release_build: TRUE
   :test_file_prefix: test_
 
 #:release_build:
@@ -35,13 +35,20 @@
   # in order to add common defines:
   #  1) remove the trailing [] from the :common: section
   #  2) add entries to the :common: section (e.g. :test: has TEST defined)
-  :commmon: &common_defines []
+  :commmon: &common_defines
+    - __MSP430FR2311__
   :test:
     - *common_defines
     - TEST
   :test_preprocess:
     - *common_defines
     - TEST
+  :release:
+    - *common_defines
+    - RELEASE
+  :release_preprocess:
+    - *common_defines
+    - RELEASE
 
 :cmock:
   :mock_prefix: mock_
@@ -63,8 +70,35 @@
       :*:
         - -Wall
         - -I/Users/aaron/ti/gcc/include
+  :release:
+    :compile:
+      :*:
+        - -Wall
+        - -I/Users/aaron/ti/gcc/include
+        - -Isrc/
+        - -T msp430fr2311.ld
+        - -mmcu=msp430fr2311
+    :link:
+      :*:
+        - -L/Users/aaron/ti/gcc/include
+        - -T msp430fr2311.ld
 
-#:tools:
+:tools:
+  :release_compiler:
+    :executable: /Users/aaron/ti/gcc/bin/msp430-elf-gcc              #exists in system search path
+    :name: 'MSP430 GCC compiler'
+    :arguments:
+      - -I"$”: COLLECTION_PATHS_RELEASE_TOOLCHAIN_INCLUDE               #expands to -I search paths
+      - -D$: COLLECTION_DEFINES_RELEASE_AND_VENDOR  #expands to all -D defined symbols
+      - -c ${1}                       #source code input file (Ruby method call param list sub)
+      - -o ${2}                       #object file output (Ruby method call param list sub)
+  :release_linker:
+     :executable: /Users/aaron/ti/gcc/bin/msp430-elf-ld    #absolute file path
+     :name: 'acme test linker'
+     :arguments:
+        - ${1}               #list of object files to link (Ruby method call param list sub)
+        - -o ${2}            #executable file output (Ruby method call param list sub)
+
 # Ceedling defaults to using gcc for compiling, linking, etc.
 # As [:tools] is blank, gcc will be used (so long as it's in your system path)
 # See documentation to configure a given toolchain for use

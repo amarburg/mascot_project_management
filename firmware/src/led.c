@@ -2,6 +2,8 @@
 
 #include "digital_io.h"
 
+#include "bsp/bsp_digital_io.h"
+
 void led_on( uint8_t which )
 {
 	bsp_dio_set( which, true );

@@ -4,7 +4,7 @@
 
 
 
-void main( void )
+int main( void )
 {
 	bsp_dio_init();
 

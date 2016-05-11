@@ -2,8 +2,9 @@
 #define bsp_digital_io_H
 
 #include <stdint.h>
-#include "config.h"
+#include <stdbool.h>
 
+void bsp_dio_init( void );
 
 void bsp_dio_set( uint8_t signal, bool active );
 

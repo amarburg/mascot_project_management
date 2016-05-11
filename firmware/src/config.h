@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#define POWER_ACTIVE_MS 200
+#define POWER_ACTIVE_MS 10
 #define RESET_ACTIVE_MS (POWER_ACTIVE_MS)
 
 #endif
