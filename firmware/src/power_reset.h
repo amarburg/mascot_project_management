@@ -4,5 +4,4 @@
 void do_power_jetson();
 void do_reset_jetson();
 
-
 #endif // digital_io_H
