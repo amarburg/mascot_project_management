@@ -78,12 +78,14 @@
     :compile:
       :*:
         - -Wall
+        - -O3
         - -I/Users/aaron/ti/gcc/include
         - -Isrc/
         - -T msp430fr2311.ld
         - -mmcu=msp430fr2311
     :link:
       :*:
+        - -O3
         - -L/Users/aaron/ti/gcc/include
         - -T msp430fr2311.ld
 
