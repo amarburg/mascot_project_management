@@ -1,0 +1,81 @@
+require 'pathname'
+
+Dir.glob("*/Rakefile").each { |subrakefile|
+	include subrakefile
+}
+
+RootDir = Pathname.new(__FILE__).parent.relative_path_from( Pathname.new(__FILE__).parent )
+ObjDir = RootDir.join('obj')
+
+def obj( *files )
+	files.flatten(1).map { |f| ObjDir.join Pathname.new(f).basename.sub_ext('.o').to_s }
+end
+
+SrcDir = RootDir.parent.join('src')
+
+# FIRMWARE_ROOT=../../src
+#
+GccDir = Pathname.new("/Users/aaron/ti/gcc")
+CC      = GccDir.join "bin", "msp430-elf-gcc"
+LD      = GccDir.join "bin", "msp430-elf-ld"
+GDB     = GccDir.join "bin", "msp430-elf-gdb"
+AR			= GccDir.join "bin", "msp430-elf-ar"
+
+SupportFileDirectory = GccDir.join('include')
+Device  = "msp430fr2311"
+
+CFlags= %W( -I #{SupportFileDirectory} -I #{SrcDir} -mmcu=#{Device} -O2 -g )
+LDFlags = %W( -L #{SupportFileDirectory} )
+
+task :default => :all
+task :all
+
+LibCompanionFiles = Dir.glob( SrcDir.join("*.c") ) + Dir.glob( SrcDir.join("bsp","*.c") )
+LibCompanion = "libcompanion.a"
+
+directory ObjDir.to_s do |t|
+	mkdir t.name unless File::directory?( t.name )
+end
+
+file LibCompanion.to_s => obj( LibCompanionFiles ) do |t|
+	sh %W( #{AR} -r #{t.name} ) + t.dependencies
+end
+
+#rule ".o" => ObjDir.to_s
+
+rule ".o" => ".c" do |t|
+	sh *([CC.to_s] + CFlags + LDFlags + %W( -o #{t.name} #{t.source} ))
+end
+
+rule ".o" => ->(t){t.pathmap("../src/%f").ext(".c")} do |t|
+	sh *([CC.to_s] + CFlags + LDFlags + %W( -o #{t.name} #{t.source} ))
+end
+
+rule ".o" => ->(t){t.pathmap("../src/bsp/%f").ext(".c")} do |t|
+	sh *([CC.to_s] + CFlags + LDFlags + %W( -o #{t.name} #{t.source} ))
+end
+
+rule ".o" => ->(t){t.pathmap("blink_bsp/%f").ext(".c")} do |t|
+	sh *([CC.to_s] + CFlags + LDFlags + %W( -o #{t.name} #{t.source} ))
+end
+
+
+# rule ".out" => ".o" do |t|
+# 	sh *([LD.to_s] + LDFlags + %W( -o #{t.name} #{t.source} ))
+# end
+
+rule ".out" => LibCompanion
+
+task :all => "blink_bsp:compile"
+
+namespace :blink_bsp do
+	task :compile => "blink_bsp/blink_bsp.out"
+
+	file "blink_bsp/blink_bsp.out" => obj("blink_bsp/blink_bsp.c") do |t|
+			sh *([LD.to_s] + LDFlags + %W( -o #{t.name} ) + t.sources )
+	end
+
+	task :debug => "blink_bsp/blink_bsp.out" do |t|
+		sh *[GDB.to_s, '-command=gdb.cmds', t.source]
+	end
+end

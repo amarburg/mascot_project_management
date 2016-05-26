@@ -10,7 +10,7 @@
 struct DigitalIoConfig {
 	uint8_t signal;
  	volatile unsigned char *dir, *out;
- 	uint8_t pin;
+ 	uint8_t pin, pinsel;
 	bool active;
 };
 

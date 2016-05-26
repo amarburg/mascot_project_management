@@ -23,3 +23,11 @@ void bsp_dio_set( uint8_t signal, bool active )
 		*DigitalIoSignals[signal].out &= ~DigitalIoSignals[signal].pin;
 	}
 }
+
+bool bsp_dio_get( uint8_t signal )
+{
+	bool state = (*DigitalIoSignals[signal].out |= DigitalIoSignals[signal].pin) != 0;
+	if( DigitalIoSignals[signal].active == ActiveLow ) state = !state;
+
+	return state;
+}
