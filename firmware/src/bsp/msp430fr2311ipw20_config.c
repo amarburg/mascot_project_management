@@ -1,5 +1,7 @@
 #include <msp430fr2311.h>
 
+#include "digital_io.h"
+
 // Chip-specific configuration
 
 const struct DigitalIoConfig DigitalIoSignals[NUM_DIO_PINS] = {

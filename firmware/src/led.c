@@ -16,6 +16,5 @@ void led_off( uint8_t which )
 
 void led_toggle( uint8_t which )
 {
-	bool state = bsp_dio_get( which );
-	bsp_dio_set( which, !state );
+	bsp_dio_toggle( which );
 }
