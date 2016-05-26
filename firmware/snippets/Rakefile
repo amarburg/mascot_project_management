@@ -59,6 +59,9 @@ rule ".o" => ->(t){t.pathmap("blink_bsp/%f").ext(".c")} do |t|
 	sh *([CC.to_s] + CFlags + LDFlags + %W( -c  -o #{t.name} #{t.source} ))
 end
 
+rule ".o" => ->(t){t.pathmap("watchdog_test/%f").ext(".c")} do |t|
+	sh *([CC.to_s] + CFlags + LDFlags + %W( -c  -o #{t.name} #{t.source} ))
+end
 
 # rule ".out" => ".o" do |t|
 # 	sh *([LD.to_s] + LDFlags + %W( -o #{t.name} #{t.source} ))
@@ -76,6 +79,21 @@ namespace :blink_bsp do
 	end
 
 	task :debug => "blink_bsp/blink_bsp.out" do |t|
+		sh *[GDB.to_s, '-command=gdb.cmds', t.source]
+	end
+end
+
+task :all => "watchdog_test:compile"
+
+
+namespace :watchdog_test do
+	task :compile => "watchdog_test/watchdog_test.out"
+
+	file "watchdog_test/watchdog_test.out" => obj("watchdog_test/watchdog_test.c") << LibCompanion do |t|
+			sh *([LD.to_s] + LDFlags + CFlags + %W( -o #{t.name} ) + t.sources )
+	end
+
+	task :debug => "watchdog_test/watchdog_test.out" do |t|
 		sh *[GDB.to_s, '-command=gdb.cmds', t.source]
 	end
 end

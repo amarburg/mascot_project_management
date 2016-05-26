@@ -3,15 +3,19 @@
 
 #include "bsp_watchdog_timer.h"
 
-void bsp_watchdog_init( void )
+void bsp_watchdog_init( bool enable )
 {
 	// Configures WDT to use SMCLK / 2^19
 	// On power up, SMCLK = 1MHz, this gives 0.5s
 	//
-	WDTCTL = WDTPW | WDTIS_3;
+	if( enable ) {
+		WDTCTL = WDTPW | WDTIS_3 | WDTCNTCL;
+	} else {
+		WDTCTL = WDTPW | WDTHOLD;               // Stop watchdog timer
+	}
 }
 
 void bsp_watchdog_touch( void )
 {
-	WDTCTL = WDTPW | WDTCNTCL;
+	WDTCTL = WDTPW | ((WDTCTL & 0x00FF) | WDTCNTCL);
 }
