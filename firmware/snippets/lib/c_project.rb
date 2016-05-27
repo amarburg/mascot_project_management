@@ -74,6 +74,7 @@ class CProject
 			end
 
 			task :debug => binary do |t|
+  			Signal.trap('INT', "IGNORE" )
 				sh *[GDB.to_s, '-command=gdb.cmds', t.source]
 			end
 		end

@@ -14,8 +14,9 @@ void bsp_clock_init( void )
 	P2SEL1 |=   BIT7 | BIT6;
 	P2SEL0 &= ~(BIT7 | BIT6);
 
-	// MCLK = XT1 / 8.  SMCLK = MCLK / 2
-	CSCTL5 |= DIVM__2 | DIVS__8;
+	// MCLK = XT1 / 8 = 2MHz.
+  // SMCLK = MCLK / 2 = 1MHz
+	CSCTL5 |= DIVM__8 | DIVS__2;
 
 	do {
    CSCTL7  &= ~(XT1OFFG + DCOFFG); // Clear XT2,XT1,DCO fault flags

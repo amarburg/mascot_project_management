@@ -76,3 +76,7 @@ CProject.new( "watchdog_test", dir: "02_watchdog_test",
 CProject.new( "xtal_init", dir: "03_xtal_init",
 													srcs: ["xtal_init.c"],
  													libs: LibCompanion )
+
+CProject.new( "timer_int", dir: "04_timer_int",
+													srcs: ["timer_int.c"],
+ 													libs: LibCompanion )
