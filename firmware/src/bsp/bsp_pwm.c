@@ -21,7 +21,7 @@ void bsp_pwm_init( void )
 	// Timer runs from SMCLK (1MHz)
 	// divided by 8  (8us per bit)
 	// with a 12-bit counter (32.768 ms/rollover = 30Hz)
-	TB1CTL = TBSSEL__SMCLK | ID__8 | CNTL__16;
+	TB1CTL = TBSSEL__SMCLK | ID__8 | CNTL__12;
 
 	TB1CCR1 = 0x3FF;
 	TB1CCR2 = 0x3FF;
@@ -40,6 +40,8 @@ void bsp_pwm_init( void )
 	P2SEL1 &= ~(BIT0 | BIT1);
 
 	P2DIR |= BIT0 | BIT1;
+
+	bsp_pwm_start();
 }
 
 void bsp_pwm_start( void )

@@ -31,14 +31,12 @@ int main(void) {
     PM5CTL0 &= ~LOCKLPM5;                   // Disable the GPIO power-on default high-impedance mode
                                             // to activate previously configured port settings
 		bsp_dio_init();
-
 		led_off( LED2 );
 		led_off( LED1 );
 
 		bsp_pwm_init();
-		bsp_pwm_start();
 
-		//bsp_watchdog_init(true);
+		bsp_watchdog_init(true);
 
 		// Enable Interrupts
 		//__eint();
@@ -50,7 +48,7 @@ int main(void) {
 			__bis_SR_register(LPM0_bits + GIE);
 
 			++loops;
-			if( loops % 5 == 0 ) led_toggle(LED2);
+			if( loops % 32 == 0 ) led_toggle(LED2);
     }
 
     return 0;

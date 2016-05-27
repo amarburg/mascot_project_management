@@ -5,11 +5,10 @@
 
 void bsp_watchdog_init( bool enable )
 {
-	// Configures WDT to use SMCLK / 2^19
-	// On power up, SMCLK = 1MHz, this gives 0.5s
+	// Configures WDT to use ACLK @ 32.768 kHz / 2^15 = 1sec
 	//
 	if( enable ) {
-		WDTCTL = WDTPW | WDTIS_3 | WDTCNTCL;
+		WDTCTL = WDTPW | WDTSSEL__ACLK | WDTIS_4  | WDTCNTCL;
 	} else {
 		WDTCTL = WDTPW | WDTHOLD;               // Stop watchdog timer
 	}
