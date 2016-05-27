@@ -1,11 +1,14 @@
 require 'pathname'
 
+require_relative 'lib/c_project'
+
 Dir.glob("*/Rakefile").each { |subrakefile|
 	include subrakefile
 }
 
 RootDir = Pathname.new(__FILE__).parent.relative_path_from( Pathname.new(__FILE__).parent )
 ObjDir = RootDir.join('obj')
+CProject.objDir = ObjDir
 
 def obj( *files )
 	files.flatten(1).map { |f| ObjDir.join Pathname.new(f).basename.sub_ext('.o').to_s }
@@ -55,13 +58,6 @@ rule ".o" => ->(t){t.pathmap("../src/bsp/%f").ext(".c")} do |t|
 	sh *([CC.to_s] + CFlags  + %W( -c -o #{t.name} #{t.source} ))
 end
 
-rule ".o" => ->(t){t.pathmap("blink_bsp/%f").ext(".c")} do |t|
-	sh *([CC.to_s] + CFlags + LDFlags + %W( -c  -o #{t.name} #{t.source} ))
-end
-
-rule ".o" => ->(t){t.pathmap("watchdog_test/%f").ext(".c")} do |t|
-	sh *([CC.to_s] + CFlags + LDFlags + %W( -c  -o #{t.name} #{t.source} ))
-end
 
 # rule ".out" => ".o" do |t|
 # 	sh *([LD.to_s] + LDFlags + %W( -o #{t.name} #{t.source} ))
@@ -69,31 +65,14 @@ end
 
 rule ".out" => LibCompanion
 
-task :all => "blink_bsp:compile"
+CProject.new( "blink_bsp", dir: "01_blink_bsp",
+																srcs: ["blink_bsp.c"],
+																libs: LibCompanion )
 
-namespace :blink_bsp do
-	task :compile => "blink_bsp/blink_bsp.out"
+CProject.new( "watchdog_test", dir: "02_watchdog_test",
+																srcs: ["watchdog_test.c"],
+																libs: LibCompanion )
 
-	file "blink_bsp/blink_bsp.out" => obj("blink_bsp/blink_bsp.c") << LibCompanion do |t|
-			sh *([LD.to_s] + LDFlags + CFlags + %W( -o #{t.name} ) + t.sources )
-	end
-
-	task :debug => "blink_bsp/blink_bsp.out" do |t|
-		sh *[GDB.to_s, '-command=gdb.cmds', t.source]
-	end
-end
-
-task :all => "watchdog_test:compile"
-
-
-namespace :watchdog_test do
-	task :compile => "watchdog_test/watchdog_test.out"
-
-	file "watchdog_test/watchdog_test.out" => obj("watchdog_test/watchdog_test.c") << LibCompanion do |t|
-			sh *([LD.to_s] + LDFlags + CFlags + %W( -o #{t.name} ) + t.sources )
-	end
-
-	task :debug => "watchdog_test/watchdog_test.out" do |t|
-		sh *[GDB.to_s, '-command=gdb.cmds', t.source]
-	end
-end
+CProject.new( "xtal_init", dir: "03_xtal_init",
+													srcs: ["xtal_init.c"],
+ 													libs: LibCompanion )
