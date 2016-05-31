@@ -2,11 +2,11 @@
 #include "msp430.h"
 
 #include "pwm.h"
-#include "bsp_pwm.h"
+#include "bsp_timer.h"
 
 
 
-void bsp_pwm_init( void )
+void bsp_timer_init( void )
 {
 // • Write 1 to the TBCLR bit (TBCLR = 1) to clear TBxR, clock divider state, and the counter direction.
 // • If necessary, write initial counter value to TBxR.
@@ -15,7 +15,7 @@ void bsp_pwm_init( void )
 // • Apply desired configuration to TBxCTL including to MC bits.
 
 	// Stop and reset timer
-	bsp_pwm_stop();
+	bsp_timer_stop();
 	TB1CTL |= TBCLR;
 
 	// Timer runs from SMCLK (1MHz)
@@ -41,10 +41,10 @@ void bsp_pwm_init( void )
 
 	P2DIR |= BIT0 | BIT1;
 
-	bsp_pwm_start();
+	bsp_timer_start();
 }
 
-void bsp_pwm_start( void )
+void bsp_timer_start( void )
 {
 	TB1CTL |= (MC__CONTINUOUS | TBCLR);
 }
@@ -55,7 +55,7 @@ void bsp_pwm_set_bit( uint16_t scalar )
 	TB1CCR2 = scalar;
 }
 
-void bsp_pwm_stop( void )
+void bsp_timer_stop( void )
 {
 	// Set stop mode
 	TB1CTL &= ~(MC__CONTINUOUS | MC__UP);
