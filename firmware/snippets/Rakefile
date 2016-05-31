@@ -88,3 +88,8 @@ CProject.new( "power_reset", dir: "05_power_reset",
 CProject.new( "i2c_test", dir: "06_i2c_test",
 													srcs: ["i2c_test.c"],
  													libs: LibCompanion )
+
+
+CProject.new( "main", dir: "99_main",
+													srcs: ["main.c", "i2c_isr.c", "timer_isr.c"],
+ 													libs: LibCompanion )

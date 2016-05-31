@@ -7,7 +7,7 @@
 #include "bsp/bsp_digital_io.h"
 #include "bsp/bsp_watchdog_timer.h"
 #include "bsp/bsp_clock.h"
-#include "bsp/bsp_pwm.h"
+#include "bsp/bsp_timer.h"
 #include "led.h"
 
 

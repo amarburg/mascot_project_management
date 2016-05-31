@@ -33,7 +33,8 @@ void bsp_timer_init( void )
 	// Enable to overflow interrupt
 	TB1CTL |= TBIE_1;
 
-	pwm_set( 0 ); // ==
+	pwm_set( TIMER1, 0 );
+	pwm_set( TIMER2, 0 );
 
 	// Configure TB1.1 and TB1.2 dio pins
 	P2SEL0 |=  BIT0 | BIT1;
@@ -49,10 +50,22 @@ void bsp_timer_start( void )
 	TB1CTL |= (MC__CONTINUOUS | TBCLR);
 }
 
-void bsp_pwm_set_bit( uint16_t scalar )
+void bsp_pwm_set( uint8_t which, uint16_t scalar )
 {
-	TB1CCR1 = scalar;
-	TB1CCR2 = scalar;
+	if( which == TIMER1 )
+		TB1CCR1 = scalar;
+	else if( which == TIMER2 )
+		TB1CCR2 = scalar;
+}
+
+uint16_t bsp_pwm_get( uint8_t which )
+{
+	if( which == TIMER1 )
+		return TB1CCR1;
+	else if( which == TIMER2 )
+		return TB1CCR2;
+
+	return 0;
 }
 
 void bsp_timer_stop( void )
