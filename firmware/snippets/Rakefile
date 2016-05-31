@@ -80,3 +80,7 @@ CProject.new( "xtal_init", dir: "03_xtal_init",
 CProject.new( "timer_int", dir: "04_timer_int",
 													srcs: ["timer_int.c"],
  													libs: LibCompanion )
+
+CProject.new( "power_reset", dir: "05_power_reset",
+													srcs: ["power_reset_test.c"],
+ 													libs: LibCompanion )
