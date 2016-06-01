@@ -81,8 +81,8 @@ CProject.new( "xtal_init", dir: "03_xtal_init",
 													srcs: ["xtal_init.c"],
  													libs: LibCompanion )
 
-CProject.new( "timer_int", dir: "04_timer_int",
-													srcs: ["timer_int.c"],
+CProject.new( "timer_init", dir: "04_timer_init",
+													srcs: ["timer_init.c"],
  													libs: LibCompanion )
 
 CProject.new( "power_reset", dir: "05_power_reset",
@@ -93,6 +93,14 @@ CProject.new( "i2c_test", dir: "06_i2c_test",
 													srcs: ["i2c_test.c"],
  													libs: LibCompanion )
 
+CProject.new( "pwm_test", dir: "07_pwm_test",
+													srcs: ["pwm_test.c"],
+ 													libs: LibCompanion )
+
+
+CProject.new( "pwm_i2c", dir: "08_pwm_i2c",
+													srcs: ["pwm_i2c.c"],
+ 													libs: LibCompanion )
 
 CProject.new( "main", dir: "99_main",
 													srcs: ["main.c", "i2c_isr.c", "timer_isr.c"],

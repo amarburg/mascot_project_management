@@ -7,7 +7,7 @@
 #define LIGHT1  TIMER1
 #define LIGHT2  TIMER2
 
-// Scaled from 0 - 255
+// Val is caled from 0 - 255
 void pwm_set( uint8_t which, uint8_t val );
 
 uint8_t pwm_get( uint8_t which );

@@ -19,12 +19,12 @@ void bsp_timer_init( void )
 	TB1CTL |= TBCLR;
 
 	// Timer runs from SMCLK (1MHz)
-	// divided by 8  (8us per bit)
+	// divided by 8 (8us per bit)
 	// with a 12-bit counter (32.768 ms/rollover = 30Hz)
 	TB1CTL = TBSSEL__SMCLK | ID__8 | CNTL__12;
 
-	TB1CCR1 = 0x3FF;
-	TB1CCR2 = 0x3FF;
+	TB1CCR1 = 0x00;
+	TB1CCR2 = 0x00;
 
 	// Reset/set mode
 	TB1CCTL1 = OUTMOD_7;
@@ -36,11 +36,14 @@ void bsp_timer_init( void )
 	pwm_set( TIMER1, 0 );
 	pwm_set( TIMER2, 0 );
 
-	// Configure TB1.1 and TB1.2 dio pins
-	P2SEL0 |=  BIT0 | BIT1;
+	// Start with the TB1.1 and TB1.2 dio pins disconnected from the timer block
+
+	P2SEL0 &= ~(BIT0 | BIT1);
 	P2SEL1 &= ~(BIT0 | BIT1);
 
 	P2DIR |= BIT0 | BIT1;
+	P2OUT &= ~(BIT0 | BIT1);
+
 
 	bsp_timer_start();
 }
@@ -52,10 +55,23 @@ void bsp_timer_start( void )
 
 void bsp_pwm_set( uint8_t which, uint16_t scalar )
 {
-	if( which == TIMER1 )
-		TB1CCR1 = scalar;
-	else if( which == TIMER2 )
-		TB1CCR2 = scalar;
+	uint8_t bit = (which == TIMER1) ? BIT0 : BIT1;
+
+	if( scalar == 0 ) {
+		//scalar = 0 means pull the pin to ground
+		P2OUT  &= ~bit;
+		P2SEL0 &= ~bit;
+
+	} else {
+		P2SEL0 |=  bit;
+		// P2SEL1 &= ~bit;
+
+		if( which == TIMER1 ){
+			TB1CCR1 = scalar;
+		} else if( which == TIMER2 ) {
+			TB1CCR2 = scalar;
+		}
+	}
 }
 
 uint16_t bsp_pwm_get( uint8_t which )

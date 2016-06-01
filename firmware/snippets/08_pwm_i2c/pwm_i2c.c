@@ -10,16 +10,8 @@
 #include "bsp/bsp_timer.h"
 #include "bsp/bsp_i2c.h"
 #include "led.h"
+#include "pwm.h"
 
-
-enum GlobalState {
-		ON_STARTUP = 0,
-		POWER_JETSON = 1,
-		IDLE = 2
-} state = ON_STARTUP;
-
-const unsigned int ON_STARTUP_DELAY = 10;
-const unsigned int POWER_DELAY = 4;
 
 // Called every 30ms
 void __attribute__((interrupt(TIMER1_B1_VECTOR))) isr_T1B1(void)
@@ -58,15 +50,17 @@ void __attribute__((interrupt(EUSCI_B0_VECTOR))) isr_USCI_B0(void)
 						break;
 	case 0x0e:  // Vector 14: RXIFG2
 						data = UCB0RXBUF;
+						pwm_set( LIGHT2, data );
 						break;
 	case 0x10:  // Vector 16: TXIFG2
-						UCB0TXBUF = 0x55;
+						UCB0TXBUF = pwm_get( LIGHT2 );
 						break;
 	case 0x12:  // Vector 18: RXIFG1
 						data = UCB0RXBUF;
+						pwm_set( LIGHT1, data );
 						break;
 	case 0x14:  // Vector 20: TXIFG1
-						UCB0TXBUF = 0x66;
+						UCB0TXBUF = pwm_get( LIGHT1 );
 						break;
 	case 0x16:  // Vector 22: RXIFG0
 						data = UCB0RXBUF;
