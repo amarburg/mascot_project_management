@@ -52,7 +52,7 @@ void test_multiple_states( void )
 	struct State states[] = { {0, 2, onEntry, onIdle, onExit },
  														{1, 0, NULL, onIdle, NULL }};
 
-	int expect[] = { 1, 100, 101, 102, 103 };
+	int expect[] = { 1, 2, 100, 101, 102 };
 
 	initialize_state_machine( &sm, states, 2 );
 
@@ -71,17 +71,19 @@ void test_multiple_states( void )
 
 bool canary;
 
-void incrementStatus( StateMachine *sm )
+void incrementStatus( struct StateMachine *sm )
 {
+	printf("increment!\n");
 	++status;
 }
 
-void jumpToIdx( StateMachine *sm )
+void jumpToIdx( struct StateMachine *sm )
 {
+	printf("jump!\n");
 	state_machine_next_id( sm, 1001 );
 }
 
-void neverCalled( StateMachine *sm )
+void neverCalled( struct StateMachine *sm )
 {
 	canary = true;
 }
@@ -102,7 +104,6 @@ void test_state_transitions( void )
 
 	for( int i = 0; i < 6; ++i ) {
 		state_machine_step( &sm );
-		printf("status: %d\n", status );
 		TEST_ASSERT( canary == false );
 	}
 }

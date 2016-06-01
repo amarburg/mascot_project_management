@@ -1,6 +1,8 @@
 
 #include <stdlib.h>
 
+#include <stdio.h>
+
 #include "state_machine.h"
 
 void initialize_state_machine( struct StateMachine *sm, struct State *states, int numStates )
@@ -18,7 +20,7 @@ void state_machine_step( struct StateMachine *sm )
 
 	if( (sm->numStates > 1 &&
 		sm->states[sm->curIdx].duration > 0  &&
-			sm->count >= sm->states[sm->curIdx].duration &&
+			sm->count > sm->states[sm->curIdx].duration &&
 			sm->curIdx < sm->numStates-1 ) ||
 			sm->nextIdx != sm->curIdx ) {
 
@@ -41,7 +43,7 @@ void state_machine_step( struct StateMachine *sm )
 
 bool state_machine_next_idx( struct StateMachine *sm, int idx )
 {
-	if( idx > 0 && idx < sm->numStates ) {
+	if( idx >= 0 && idx < sm->numStates ) {
 		sm->nextIdx = idx;
 		return true;
 	}
@@ -51,9 +53,9 @@ bool state_machine_next_idx( struct StateMachine *sm, int idx )
 
 bool state_machine_next_id( struct StateMachine *sm, int id )
 {
-	for( int i = 0; i < sm->numStatesl ++i ) {
-		if( id == sm->states[ i ].id ) return state_machine_next_idx( i );
+	for( int i = 0; i < sm->numStates; ++i ) {
+		if( id == sm->states[ i ].id ) return state_machine_next_idx( sm, i );
 	}
 
-	return false;ß
+	return false;
 }
