@@ -24,3 +24,6 @@ struct StateMachine {
 void initialize_state_machine( struct StateMachine *, struct State *, int numStates );
 
 void state_machine_step( struct StateMachine * );
+
+bool state_machine_next_idx( struct StateMachine *, int idx );
+bool state_machine_next_id( struct StateMachine *, int id );

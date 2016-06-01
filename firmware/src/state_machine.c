@@ -38,3 +38,22 @@ void state_machine_step( struct StateMachine *sm )
 
 	if( sm->states[sm->curIdx].inFunc != NULL ) sm->states[sm->curIdx].inFunc( sm );
 }
+
+bool state_machine_next_idx( struct StateMachine *sm, int idx )
+{
+	if( idx > 0 && idx < sm->numStates ) {
+		sm->nextIdx = idx;
+		return true;
+	}
+
+	return false;
+}
+
+bool state_machine_next_id( struct StateMachine *sm, int id )
+{
+	for( int i = 0; i < sm->numStatesl ++i ) {
+		if( id == sm->states[ i ].id ) return state_machine_next_idx( i );
+	}
+
+	return false;ß
+}
