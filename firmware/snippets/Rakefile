@@ -34,13 +34,13 @@ task :default => :all
 task :all
 
 LibCompanionFiles = Dir.glob( SrcDir.join("*.c") ) + Dir.glob( SrcDir.join("bsp","*.c") )
-LibCompanion = "libcompanion.a"
+LibCompanion = "obj/libcompanion.a"
 
 directory ObjDir.to_s do |t|
 	mkdir t.name unless File::directory?( t.name )
 end
 
-file LibCompanion.to_s => obj( LibCompanionFiles ) do |t|
+file LibCompanion.to_s => obj( LibCompanionFiles )  do |t|
 	sh *([AR.to_s] + %W( -r #{t.name} ) + t.sources)
 end
 
@@ -56,6 +56,10 @@ end
 
 rule ".o" => ->(t){t.pathmap("../src/bsp/%f").ext(".c")} do |t|
 	sh *([CC.to_s] + CFlags  + %W( -c -o #{t.name} #{t.source} ))
+end
+
+task :clean do
+		sh "rm", "-f", LibCompanion
 end
 
 

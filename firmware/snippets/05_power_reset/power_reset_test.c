@@ -45,7 +45,7 @@ void main(void)
 		led_off( LED2 );
 		led_off( LED1 );
 
-		bsp_pwm_init();
+		bsp_timer_init();
 
 		bsp_watchdog_init(true);
 
