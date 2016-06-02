@@ -5,8 +5,10 @@
 // Chip-specific configuration
 
 const struct DigitalIoConfig DigitalIoSignals[NUM_DIO_PINS] = {
-	{ POWER_PIN, &P2DIR, &P2OUT, BIT2, ActiveHigh },
-	{ RESET_PIN, &P2DIR, &P2OUT, BIT3, ActiveHigh },
-	{ LED1_PIN,  &P2DIR, &P2OUT, BIT5, ActiveHigh },
-	{ LED2_PIN,  &P2DIR, &P2OUT, BIT4, ActiveHigh }
+	{ POWER_PIN, OUTPUT, PORT2, BIT2  },
+	{ RESET_PIN, OUTPUT, PORT2, BIT3  },
+	{ LED1_PIN,  OUTPUT, PORT2, BIT5  },
+	{ LED2_PIN,  OUTPUT, PORT2, BIT4 },
+	{ XBEE_DIO0, INPUT,  PORT1, BIT1 },
+	{ XBEE_DIO1, INPUT,  PORT1, BIT1 }
 };

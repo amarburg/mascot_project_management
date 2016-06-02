@@ -97,9 +97,12 @@ CProject.new( "pwm_test", dir: "07_pwm_test",
 													srcs: ["pwm_test.c"],
  													libs: LibCompanion )
 
-
 CProject.new( "pwm_i2c", dir: "08_pwm_i2c",
 													srcs: ["pwm_i2c.c"],
+ 													libs: LibCompanion )
+
+CProject.new( "xbee_dio_test", dir: "09_xbee_dio_test",
+													srcs: ["xbee_dio_test.c"],
  													libs: LibCompanion )
 
 CProject.new( "main", dir: "99_main",
