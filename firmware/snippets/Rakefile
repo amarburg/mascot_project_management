@@ -106,5 +106,5 @@ CProject.new( "xbee_dio_test", dir: "09_xbee_dio_test",
  													libs: LibCompanion )
 
 CProject.new( "main", dir: "99_main",
-													srcs: ["main.c", "i2c_isr.c", "timer_isr.c"],
+													srcs: ["main.c", "i2c_isr.c", "timer_isr.c", "main_state_machine.c"],
  													libs: LibCompanion )

@@ -12,8 +12,13 @@
 #define I2C_LIGHT2_PWM_ADDR						0x13
 #define I2C_OTHER_ADDR								0x10
 
-
 #define JETSON_WATCHDOG_FIRST_LIMIT 100
 #define JETSON_WATCHDOG_LIMIT     100
+
+#define LOOP_LENGTH_MS  		 32.768
+
+#define  ON_STARTUP_CYCLES		10
+#define START_JETSON_CYCLES  	5
+#define JETSON_STARTUP_CYCLES  50
 
 #endif

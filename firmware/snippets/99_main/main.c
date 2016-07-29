@@ -9,19 +9,7 @@
 #include "led.h"
 #include "jetson_watchdog.h"
 
-
-enum GlobalState {
-		ON_STARTUP = 0,
-		POWER_JETSON = 1,
-		IDLE = 2
-} state = ON_STARTUP;
-
-const unsigned int ON_STARTUP_DELAY = 10;
-const unsigned int POWER_DELAY = 4;
-
-
-
-
+#include "main_state_machine.h"
 
 void main(void)
 {
@@ -44,15 +32,17 @@ void main(void)
 		// Enable Interrupts
 		//__eint();
 
-		unsigned int count = 0;
-		unsigned int loops = 0;
+		init_state_machine();
+
     while(true) {
 			// Sleep (LPM0 = halt CPU, not much else)
 			//LPM0;
 			__bis_SR_register(LPM0_bits + GIE);
 
-			++loops;
-			if( loops % 32 == 0 ) led_toggle(LED2);
+			service_state_machine();
+
+			// ++loops;
+			// if( loops % 32 == 0 ) led_toggle(LED2);
 
     }
 }
