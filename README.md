@@ -24,7 +24,7 @@ technology.  The Jetson TX1 computer module contains four 64-bit ARM processor
 cores as well as a 256-CUDA core GPU, which allows the Jetson TX1 to run the Zed
 processing library.
 
-![Jetson TX1 base board](jetson_tx1.jpg)
+![Jetson TX1 base board](images/jetson_tx1.jpg)
 
 The Jetson itself lives on a small (approx. credit card) carrier board, but for
 development purposes a mini-itx 5" x 5" motherboard is provided which includes a
@@ -91,7 +91,7 @@ Electrical Design
 The board accomplishes two primary functions.  First, it mates to and provide
 breakouts for four of the expansion headers on the Jetson board:
 
-![Jetson TX1 base board](jetson_tx1_carrier_board_diagram.png)
+![Jetson TX1 base board](images/jetson_tx1_carrier_board_diagram.png)
 
 Very briefly:
 
@@ -132,7 +132,7 @@ The addresses are defined in [firmware/src/config.h](firmware/src/config.h)
 | Address | Read | Write | Notes |
 |---|---|
 | 0x66 | (undefined) | Reset Jetson watchdog | (not currently used) |
-| 0x12 | Light 1 PWM setting (0-255) | Light 1 PWM Setting< |
+| 0x12 | Light 1 PWM setting (0-255) | Light 1 PWM Setting |
 | 0x13 | Light 2 PWM setting (0-255) | Light 2 PWM Setting |
 | 0x10 | (not used) | (not used) |
 | 0x76 |  |  | [Bosch BMP280 sensor](https://www.adafruit.com/product/2651) |
