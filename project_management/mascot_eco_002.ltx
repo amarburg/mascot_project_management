@@ -5,7 +5,7 @@
 \usepackage{graphicx}
 \usepackage{tabularx}
 
-\newcommand{\mascot}{\textsc{MaSCOT}}
+\newcommand{\mascot}{MaSCOT}
 
 \begin{document}
 
@@ -19,15 +19,17 @@
 
 \subsection*{Change Request \#002}
 
-\noindent\textbf{Title: Replace Subconn 8-contact ethernet connector with 13-contact connector.}
+\noindent\textbf{Title: Replace Subconn 8-contact ethernet bulkhead with 13-contact bulkhead.}
 
 \subsection*{Technical Description:}
+
+%  TrendNet TP-IV343PI
 
 The original \mascot\ design specified an 8-contact Subconn ethernet bulkhead connector (Figure \ref{fig:subconn8})
 as the only wet connection to the \mascot\ camera enclosure.   This
 connector was selected in part because it allowed reuse of the three existing
-Subconn/Falmat gigabit ethernet cables originally purchased for the
-Sexton subsea cameras based on the TrendNet TP-IV343PI IP security camera.  The
+Subconn/Falmat gigabit ethernet cables originally purchased for
+Sexton subsea cameras owned by the Stewart lab.  The
 \mascot\ design replicated the physical interface of those cameras, with the
 8-pin connector on the web camera unit providing both gigabit ethernet and
 802.3af/at Power over Ethernet (PoE) over a single 8-conductor twisted pair
@@ -59,9 +61,9 @@ consumption of the Jetson TX1 is highly variable with computational load.
 
 To accommodate this increased power requirement, \mascot\ was designed around a
 non-standard 60W PoE injector/splitter pair.    High-power PoE systems,
-while not compliant with an existing IEEE standard are increasingly available from enterprise wireless manufacturers as they
-accommodate the higher power needs of extended range, multi-band and
-multi-radio/MIMO wireless LAN systems.
+while not compliant with an existing IEEE standard, are increasingly available from wireless manufacturers as they
+accommodate the power requirements of extended range, multi-band and
+multi-radio/MIMO enterprise wireless LAN systems.
 The splitter installed in \mascot\ includes power regulation to 19VDC which can be
 accepted natively by both the Jetson TX1 and the BlueRobotics lights.  The PoE
 system has limited surge capacity and it was possible to reboot the Jetson TX1
@@ -83,22 +85,6 @@ in the companion board resolved this problem.
   \end{subfigure}
 \caption{Two images of \mascot\ during testing.}
 \label{fig:mascot}
-\end{figure}
-
-\begin{figure}[bhtp]
-\centering
-  \begin{subfigure}{0.49\textwidth}
-    \includegraphics[width=\textwidth]{tmp/subconn_8contact_ethernet}
-    \caption{8-contact}
-    \label{fig:subconn8}
-  \end{subfigure}
-  %
-  \begin{subfigure}{0.49\textwidth}
-    \includegraphics[width=\textwidth]{tmp/subconn_13contact_ethernet}
-    \caption{13-contact}
-    \label{fig:subconn13}
-  \end{subfigure}
-\caption{Subconn Ethernet bulkhead connectors.}
 \end{figure}
 
 Under testing, it was determined that two BlueRobotics lights at a nominal 1500
@@ -127,8 +113,24 @@ shallow profiler.   Note some of the differences in apparent brightness can be a
 \label{fig:pool_testing}
 \end{figure}
 
+\begin{figure}[bhtp]
+\centering
+  \begin{subfigure}{0.49\textwidth}
+    \includegraphics[width=\textwidth]{tmp/subconn_8contact_ethernet}
+    \caption{8-contact}
+    \label{fig:subconn8}
+  \end{subfigure}
+  %
+  \begin{subfigure}{0.49\textwidth}
+    \includegraphics[width=\textwidth]{tmp/subconn_13contact_ethernet}
+    \caption{13-contact}
+    \label{fig:subconn13}
+  \end{subfigure}
+\caption{Subconn Ethernet bulkhead connectors.}
+\end{figure}
 
-The proposal is to replace the ethernet-only penetrator with a 13-pin penetrator
+
+The proposal is to replace the 8-contact ethernet-only penetrator (Figure \ref{fig:subconn8}) with a 13-pin penetrator
 (Figure \ref{fig:subconn13}) which includes both Gigabit ethernet as well as
 four additional conductors (and a shield connection).  The additional pins (at
 4A nom each) would be used as an independent power bus.   Notably, this
@@ -162,11 +164,11 @@ fail (water intrusion to light electronics rather than Jetson/Zed).   This is
 contingent on being able to chain three lights together, which depends on the
 current-carrying capacity of the BlueRobotics cabling.
 
-\item Purchase of a new wet cable at ~50ft incorporating the 13-pin Subconn
+\item Purchase of a new wet cable at $\sim50$ ft incorporating the 13-pin Subconn
 connector.
 
 \item Replace the PoE injector at topside with a deckbox which terminates the wet cable into Gigabit ethernet (as a punchdown jack?) and power leads.
-This deck box could incorporate the main power supply for \mascot, a 48V 150W+ AC-DC converter.
+This deck box would incorporate the main power supply for \mascot, a 48V 150W+ AC-DC converter.
 
 \item Replace the PoE splitter in \mascot\ with a 12V output, 30W DC/DC converter.     The proposed unit has a similar, if slightly smaller physical envelope
 than the existing PoE splitter.
