@@ -25,7 +25,8 @@
 
 %  TrendNet TP-IV343PI
 
-The original \mascot\ design specified an 8-contact Subconn ethernet bulkhead connector (Figure \ref{fig:subconn8})
+The original \mascot\ design specified an 8-contact Subconn
+ethernet bulkhead connector (Figure \ref{fig:subconn8})
 as the only wet connection to the \mascot\ camera enclosure.   This
 connector was selected in part because it allowed reuse of the three existing
 Subconn/Falmat gigabit ethernet cables originally purchased for
@@ -60,15 +61,15 @@ consumption of the Jetson TX1 is highly variable with computational load.
 % \end{figure}
 
 To accommodate this increased power requirement, \mascot\ was designed around a
-non-standard 60W PoE injector/splitter pair.    High-power PoE systems,
-while not compliant with an existing IEEE standard, are increasingly available from wireless manufacturers as they
-accommodate the power requirements of extended range, multi-band and
-multi-radio/MIMO enterprise wireless LAN systems.
-The splitter installed in \mascot\ includes power regulation to 19VDC which can be
+non-standard 60W PoE injector/splitter pair.    High-power PoE systems, while
+not compliant with an existing IEEE standard, are increasingly available from
+wireless manufacturers as they accommodate the power requirements of extended
+range, multi-band and multi-radio/MIMO enterprise wireless WLAN systems. The
+splitter installed in \mascot\ includes power regulation to 19VDC which can be
 accepted natively by both the Jetson TX1 and the BlueRobotics lights.  The PoE
 system has limited surge capacity and it was possible to reboot the Jetson TX1
-by turning both lights on suddenly, but implementing a smoothly ramping turn-on/turn-off procedure
-in the companion board resolved this problem.
+by turning both lights on suddenly, but implementing a smoothly ramping
+turn-on/turn-off procedure in the companion board resolved this problem.
 
 \begin{figure}[bhtp]
 \centering
@@ -109,7 +110,7 @@ of of the PoE-based power system.
     \label{fig:far}
   \end{subfigure}
 \caption{Two images from testing in the OSB pool with part of an OOI
-shallow profiler.   Note some of the differences in apparent brightness can be attributed to auto-exposure controls in the camera.}
+shallow profiler.   Some of the differences in apparent brightness can be attributed to auto-exposure controls in the camera.}
 \label{fig:pool_testing}
 \end{figure}
 
@@ -131,13 +132,16 @@ shallow profiler.   Note some of the differences in apparent brightness can be a
 
 
 The proposal is to replace the 8-contact ethernet-only penetrator (Figure \ref{fig:subconn8}) with a 13-pin penetrator
-(Figure \ref{fig:subconn13}) which includes both Gigabit ethernet as well as
-four additional conductors (and a shield connection).  The additional pins (at
-4A nom each) would be used as an independent power bus.   Notably, this
-connector is used on the Adaptive Monitoring Package (AMP) and TUNA WEBS for
-similar purposes (ethernet plus power). The final configuration will have six
+(Figure \ref{fig:subconn13}) which adds
+four additional conductors (and a shield connection) to the eight ethernet pins.
+The additional pins (at
+4A nom each) can then used as an independent power bus.   Notably, this
+connector is also used on the Adaptive Monitoring Package (AMP) and TUNA WEBS for
+similar purposes (ethernet plus power).
+
+The final configuration will have six
 BlueRobotics LED lights, with a nominal power budget of  $\sim105W$.   The power
-conductors will supply 2A at 48VDC nom. from the topside.   The BlueRobotics lights
+conductors will supply 2.1A at 48VDC nom. from the topside.   The BlueRobotics lights
 will take up to 48V (less cable losses) directly, but the Jetson requires
 a DC/DC converter to generate 9-18VDC.   The addition of the DC/DC converter
 also provides some amount of power bus isolation between the two units.
@@ -148,8 +152,9 @@ This would necessitate the following changes:
 
 \item Replace the Subconn 8-contact DBH8M bulkhead with a 13-contact DBH13M
 bulkhead.   The DBH8M is threaded into the aluminum \mascot\ endcap with a
-7/16-20 UNF thread, while the DBH13M has a 1/2-20 UNF thread. It must be
-determined if the hole can be enlarged and rethreaded or if this change would necessitate manufacturing a new endcap (which may be too expensive to justify).
+7/16-20 UNF thread, while the DBH13M has a 1/2-20 UNF thread.
+If the 7/16-UNF thread has been cut to spec, there should be sufficient material
+left to re-drill and re-tap to 1/2-20.
 
 \item Add four additional BlueRobotics LED lights, mounted adjacent to the
 existing lights.   These additional lights will be daisy-chained to the current
@@ -167,11 +172,17 @@ current-carrying capacity of the BlueRobotics cabling.
 \item Purchase of a new wet cable at $\sim50$ ft incorporating the 13-pin Subconn
 connector.
 
-\item Replace the PoE injector at topside with a deckbox which terminates the wet cable into Gigabit ethernet (as a punchdown jack?) and power leads.
-This deck box would incorporate the main power supply for \mascot, a 48V 150W+ AC-DC converter.
+\item Replace the PoE injector at topside with a deckbox which terminates
+the wet cable into Gigabit ethernet (as a punchdown jack?) and power leads.
+This deck box would incorporate the main power supply for \mascot, a 48V
+150W+ AC-DC converter.
 
-\item Replace the PoE splitter in \mascot\ with a 12V output, 30W DC/DC converter.     The proposed unit has a similar, if slightly smaller physical envelope
+\item Replace the PoE splitter in \mascot\ with a 12V output,
+30W DC/DC converter.     The proposed unit has a similar, if
+slightly smaller physical envelope
 than the existing PoE splitter.
+
+\item Add fuses inside the enclosure for the two BlueRobotics light chains.
 \end{itemize}
 
 \begin{table}[h]
@@ -185,9 +196,9 @@ than the existing PoE splitter.
   BlueRobotics Led Lights (Qty 4) & \$400 & BlueRobotics online store. \\
   CUI PYB30-Q48-S12-U 12VDC/30W DC/DC converter & \$52 & Digikey \\
   TDK-Lambda LS150-48 48VDC/150W AC/DC power supply (or equiv) & \$42 & Digikey \\
-  Misc topside supplies, enclosure. & \$50 & Estimate \\
-  Labor: Machine shop & & Estimate \\
-  Labor: Robert Karran, X hours &  & Estimate \\
+  Misc topside supplies, enclosure, fuseblocks. & \$150 & Estimate \\
+  Labor: Machine shop & \$100 & Estimate \\
+  Labor: Robert Karran, 4 hours & \$60 & Estimate \\
   \hline
   \textbf{Total} & &
 \end{tabularx}
@@ -202,7 +213,8 @@ than the existing PoE splitter.
 the original SEG IRD project scope or schedule.  \\
 \hline
   \textbf{Schedule} &  As above, this change is in response to the results of the original \mascot\ project,
-and does not affect its schedule.  Mechanical and electrical re-work can be performed on an as-available basis by
+and does not affect the schedule of the original \mascot\ project, which is in its
+reporting phase.  Mechanical and electrical re-work can be performed on an as-available basis by
 Robert Karran with support from the UW-APL machine shop.
 \\
 \hline
@@ -214,11 +226,13 @@ Robert Karran with support from the UW-APL machine shop.
   making this change infeasible. \\
 
 \hline
-  \textbf{Quality} & Enabled \mascot\ to produce better video images.
-As the lights are dimmable, there is no risk of producing a light package with is ``too bright.'' \\
+  \textbf{Quality} & Enables \mascot\ to produce better video images.
+As the lights are dimmable, there is no risk of producing a light package
+that is ``too bright.'' \\
 \hline
   \textbf{Risk} & Mechanical risk from re-working and using the reworked alu. endcap.
- Increasing the number of BlueRobotics light penetrations increase the opportunity for leaks, esp. with the
+ Increasing the number of BlueRobotics light penetrations increases
+ the opportunity for leaks, esp. with the
 DIY BlueRobotics penetrations. \\
 \hline
   \textbf{Alternatives:}  &  Power lights through independent, parallel power cable(s)?
