@@ -1,8 +1,8 @@
 require 'aarons_gem/rake/latex'
 
-LatexProject.new('mascot_charter')
-
-LatexProject.new('mascot_eco_001')
+LatexProject.new('mascot_eco_001') { |ltx|
+  ltx.copy_to = '.'
+}
 
 LatexProject.new('mascot_eco_002') { |ltx|
   ltx.add_dependency PngImage.new('../images/subconn_13contact_ethernet.png')
@@ -17,4 +17,5 @@ LatexProject.new('mascot_eco_002') { |ltx|
   ltx.add_dependency JpgImage.new('../images/box_POE-172.jpg')
   ltx.add_dependency JpgImage.new('../images/box_POE-171S.jpg')
 
+  ltx.copy_to = '.'
 }

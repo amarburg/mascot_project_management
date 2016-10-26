@@ -1,0 +1,5 @@
+require 'aarons_gem/rake/latex'
+
+LatexProject.new('mascot_charter') { |ltx|
+  ltx.copy_to = '.'
+}
