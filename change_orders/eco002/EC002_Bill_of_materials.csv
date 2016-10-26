@@ -1,0 +1,29 @@
+EC0002 BOM,,,,,,,,,
+,,,,,,,,,
+Line,Description,Manuf,Manuf P/N,Qty,Distr,Distr P/N,Distr Cost,Total,Order Status
+1,48-12 DC/DC Converter,CUI,PYB20-Q48-S12-U,1,Digikey,102-3256-ND,47.02,47.02,Ordered
+2,Wet cable strain relief,Leviton,L7538,1,Amazon,,56.74,56.74,Ordered
+3,Ruggedized ethernet jack,Amphenol,RJF544621,1,Digikey,APC1724-ND,26.45,26.45,Ordered
+4,Ruggedied ethernet plug,Amphenol PCD,RJF544 6,1,Digikey,APC1009-ND,12.28,12.28,Ordered
+5,Cap for ruggedized jack,Amphenol PCD,54402BE,1,Digikey,APC1000-ND,17.35,17.35,Ordered
+6,Ruggedized power jack,TE Connectivity,1445824-3,2,Digikey,A30005-ND,8.57,17.14,Ordered
+7,Tin pins for Line 6,TE Connectivity,770903-1,25,Digikey,A25683CT-ND,0.076,1.9,Ordered
+8,Mating connector for line 6,TE Connectivity,1445820-3,5,Digikey,A30025-ND,6.7,33.5,Ordered
+9,Tin sockets for line 8,TE Connectivity,770904-1,25,Digikey,A25684CT-ND,0.064,1.6,Ordered
+10,"Extraction tool for lines 7,9",TE Connectivity,89727-1,1,Digikey,A25695-ND,29.11,29.11,Ordered
+11,Backshells for line 8,TE Connectivity,1445856-1,5,Digikey,A30037-ND,4.12,20.6,Ordered
+12,Jam nuts for line 6,TE Connectivity,1445904-1,2,Digikey,A30038-ND,2.66,5.32,Ordered
+13,Dust cap line 6,TE Connectivity,1604089-2,2,Digikey,A99374-ND,1.85,3.7,Ordered
+14,Flange seal for line 6,TE Connectivity,1445420-2,2,Digikey,A99371-ND,1.56,3.12,Ordered
+15,Switch / circuit protector,TE Connectivity,W51-A121B1-5,1,Digikey,PB528-ND,3.55,3.55,Ordered
+16,topside power supply,Delta,DRL-48V120W1AA,1,Digikey,1145-1214-ND,48.28,48.28,Ordered
+,Power entry connector,Qualtek,703W-00/04,1,Digikey,Q212-ND,0.72,0.72,Ordered
+,Lifting eye,,,1,McMaster,3014T251,4.16,4.16,PR Submitted
+,Cable termination box,,,1,McMaster,7301K12,13.47,13.47,PR Submitted
+,Power supply case,Pelican,1300NF,1,pelican-case.com,"1300NF-black, possibly 1400",46.84,46.84,PR Submitted
+,Panel frame for above,Pelican,1300PF,1,pelican-case.com,1300pf,14.87,14.87,PR Submitted
+,DIN rail,Phoenix,807012,1,Digikey,277-2064-ND,8.84,8.84,Ordered
+,Power supply case fan,Orion Fans,OD8025-48HB,1,Digikey,1053-1265-ND,12.2,12.2,PR Submitted
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,Total,416.56,
